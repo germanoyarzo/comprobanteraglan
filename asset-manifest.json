@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/comprobanteraglan/static/css/main.88e8ca78.css",
-    "main.js": "/comprobanteraglan/static/js/main.416fc5b3.js",
+    "main.js": "/comprobanteraglan/static/js/main.5d616e21.js",
     "static/js/453.1043f21a.chunk.js": "/comprobanteraglan/static/js/453.1043f21a.chunk.js",
     "static/media/LogoHotelRaglan.jpg": "/comprobanteraglan/static/media/LogoHotelRaglan.52709759f15e01354cd1.jpg",
     "index.html": "/comprobanteraglan/index.html",
     "main.88e8ca78.css.map": "/comprobanteraglan/static/css/main.88e8ca78.css.map",
-    "main.416fc5b3.js.map": "/comprobanteraglan/static/js/main.416fc5b3.js.map",
+    "main.5d616e21.js.map": "/comprobanteraglan/static/js/main.5d616e21.js.map",
     "453.1043f21a.chunk.js.map": "/comprobanteraglan/static/js/453.1043f21a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.88e8ca78.css",
-    "static/js/main.416fc5b3.js"
+    "static/js/main.5d616e21.js"
   ]
 }
