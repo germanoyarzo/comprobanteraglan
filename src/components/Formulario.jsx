@@ -14,14 +14,24 @@ const Formulario = () => {
     tipoHabitacion: ''
   });
 
-  const [errors, setErrors] = useState({}); // Estado para los errores
+  const [errors, setErrors] = useState({});
   const formRef = useRef(null);
-  const buttonRef = useRef(null); // Ref para el botón
+  const buttonRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    setErrors({ ...errors, [name]: '' }); // Limpiar error del campo al cambiar
+
+    // Si el campo es 'celular', limpia el valor
+    const cleanedValue = name === 'celular' ? limpiarCelular(value) : value;
+
+    setFormData({ ...formData, [name]: cleanedValue });
+    setErrors({ ...errors, [name]: '' });
+  };
+
+  // Función para limpiar el número de celular
+  const limpiarCelular = (celular) => {
+    return celular
+      .replace(/[^\d]/g, '') // Eliminar todo lo que no sea dígito
   };
 
   const validateForm = () => {
@@ -34,7 +44,7 @@ const Formulario = () => {
       }
     });
 
-    // Validar el formato del celular (por ejemplo, debe tener 10 dígitos)
+    // Validar el formato del celular (por ejemplo, debe tener 10 dígitos después de limpiar)
     if (formData.celular && formData.celular.length < 10) {
       validationErrors.celular = 'El celular debe tener al menos 10 dígitos';
     }
@@ -47,7 +57,7 @@ const Formulario = () => {
     e.preventDefault();
 
     if (!validateForm()) {
-      return; // Si hay errores, no enviar el formulario
+      return;
     }
 
     const image = await generarImagen(formData.nombre.concat(formData.apellido));
@@ -55,7 +65,6 @@ const Formulario = () => {
   };
 
   const generarImagen = async (nombreYapellido) => {
-    // Oculta temporalmente el botón antes de generar la imagen
     buttonRef.current.style.display = 'none';
 
     const canvas = await html2canvas(formRef.current);
@@ -65,7 +74,6 @@ const Formulario = () => {
     link.download = nombreYapellido;
     link.click();
 
-    // Muestra el botón nuevamente después de generar la imagen
     buttonRef.current.style.display = 'block';
 
     return imgData;
