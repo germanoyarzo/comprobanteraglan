@@ -72,7 +72,7 @@ const Formulario = () => {
   };
 
   const enviarPorWhatsApp = (telefono, image) => {
-    const mensaje = encodeURIComponent('Hola, te adjunto el comprobante de pago.');
+    const mensaje = encodeURIComponent('Hola, adjunto comprobante de pago.');
     window.open(`https://wa.me/${telefono}?text=${mensaje}`, '_blank');
   };
 
